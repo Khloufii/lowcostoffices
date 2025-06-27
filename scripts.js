@@ -1,138 +1,213 @@
-// Menu mobile
-const menuToggle = document.querySelector('.menu-toggle');
-const navList = document.querySelector('.nav-list');
-
-menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    navList.classList.toggle('active');
-});
-
-// Fermer le menu quand on clique sur un lien
-document.querySelectorAll('.nav-list a').forEach(link => {
-    link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navList.classList.remove('active');
+document.addEventListener('DOMContentLoaded', function() {
+    // Loader animation
+    const loader = document.querySelector('.loader');
+    const loaderPercent = document.getElementById('loaderPercent');
+    
+    let percent = 0;
+    const loaderInterval = setInterval(() => {
+        percent += 1;
+        loaderPercent.textContent = `${percent}%`;
+        
+        if (percent >= 100) {
+            clearInterval(loaderInterval);
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }
+    }, 30);
+    
+    // Animate progress bar in terminal
+    const progressBar = document.querySelector('.progress-bar');
+    setTimeout(() => {
+        progressBar.style.width = '100%';
+    }, 500);
+    
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.classList.toggle('active');
+        navMenu.classList.toggle('active');
     });
-});
-
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// Filtre du portfolio
-const filterButtons = document.querySelectorAll('.filter-btn');
-const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Active le bouton sélectionné
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        
-        const filterValue = button.getAttribute('data-filter');
-        
-        portfolioItems.forEach(item => {
-            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuBtn.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
             }
         });
     });
-});
-
-// Slider témoignages
-const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-const dots = document.querySelectorAll('.dot');
-let currentSlide = 0;
-
-function showSlide(n) {
-    testimonialSlides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
     
-    currentSlide = (n + testimonialSlides.length) % testimonialSlides.length;
-    
-    testimonialSlides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
-}
-
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        showSlide(index);
-    });
-});
-
-// Auto slide
-setInterval(() => {
-    showSlide(currentSlide + 1);
-}, 5000);
-
-// Compteur animate
-const counters = document.querySelectorAll('.counter');
-const speed = 200;
-
-function animateCounters() {
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const increment = target / speed;
-        
-        if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(animateCounters, 1);
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
         } else {
-            counter.innerText = target;
+            navbar.classList.remove('scrolled');
         }
     });
-}
-
-// Observer pour l'animation des compteurs
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounters();
-            observer.unobserve(entry.target);
-        }
+    
+    // Portfolio filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            const filter = btn.getAttribute('data-filter');
+            
+            portfolioItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
     });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stats').forEach(stat => {
-    observer.observe(stat);
-});
-
-// Animation on scroll
-const animateElements = document.querySelectorAll('.animate-slide-up, .animate-card');
-
-function checkScroll() {
-    animateElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
+    
+    // Animate stats counter
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    function animateStats() {
+        statNumbers.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-count'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            const counter = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    clearInterval(counter);
+                    stat.textContent = target;
+                } else {
+                    stat.textContent = Math.floor(current);
+                }
+            }, 16);
+        });
+    }
+    
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target.classList.contains('stats')) {
+                    animateStats();
+                }
+                
+                entry.target.classList.add('animate');
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.service-card, .portfolio-item, .stats, .form-group').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        if (elementTop < windowHeight - 100) {
-            element.style.animationPlayState = 'running';
-        }
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.querySelector('span').textContent;
+        
+        // Simulate form submission
+        submitBtn.disabled = true;
+        submitBtn.querySelector('span').textContent = 'Envoi en cours...';
+        
+        setTimeout(() => {
+            submitBtn.querySelector('span').textContent = 'Message envoyé!';
+            submitBtn.classList.add('success');
+            
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.querySelector('span').textContent = originalText;
+                submitBtn.classList.remove('success');
+                contactForm.reset();
+            }, 3000);
+        }, 1500);
     });
-}
-
-window.addEventListener('scroll', checkScroll);
-window.addEventListener('load', checkScroll);
-
-// Formulaire de contact
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
     
-    // Ici vous ajouteriez le code pour envoyer le formulaire
-    // Par exemple avec fetch() ou en le soumettant à un serveur
+    // Terminal typing effect
+    const terminalLines = [
+        "$ npm init lowcost-site",
+        "✔ Spécialité? · avocat",
+        "✔ Couleurs préférées? · bleu, blanc",
+        "✔ Fonctionnalités? · rdv, blog, galerie",
+        "Compiling site...",
+        "Site généré avec succès!",
+        "$ "
+    ];
     
-    // Message de succès
-    alert('Merci pour votre message! Nous vous contacterons bientôt.');
-    contactForm.reset();
+    const terminalBody = document.querySelector('.terminal-body');
+    let currentLine = 0;
+    let currentChar = 0;
+    let typingInterval;
+    
+    function typeTerminal() {
+        if (currentLine < terminalLines.length) {
+            if (currentChar === 0) {
+                // Create new line element
+                const lineElement = document.createElement('div');
+                lineElement.className = 'terminal-line';
+                terminalBody.insertBefore(lineElement, terminalBody.lastElementChild);
+            }
+            
+            const currentLineElement = terminalBody.children[currentLine];
+            
+            if (currentChar < terminalLines[currentLine].length) {
+                currentLineElement.textContent += terminalLines[currentLine].charAt(currentChar);
+                currentChar++;
+            } else {
+                currentLine++;
+                currentChar = 0;
+            }
+        } else {
+            clearInterval(typingInterval);
+            // Show cursor
+            terminalBody.lastElementChild.innerHTML = '$ <span class="terminal-cursor">|</span>';
+        }
+    }
+    
+    // Start typing after loader finishes
+    setTimeout(() => {
+        terminalBody.innerHTML = ''; // Clear placeholder content
+        const cursorLine = document.createElement('div');
+        cursorLine.className = 'terminal-line';
+        terminalBody.appendChild(cursorLine);
+        
+        typingInterval = setInterval(typeTerminal, 50);
+    }, 3500);
 });
