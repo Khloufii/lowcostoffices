@@ -66,44 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         loop: true
     });
 
-    // Portfolio Filter
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            const filterValue = this.getAttribute('data-filter');
-            
-            portfolioItems.forEach(item => {
-                if (filterValue === 'all' || item.classList.contains(filterValue)) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, 100);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
-    });
-
-    // Portfolio Modal
-    const portfolioModal = document.querySelector('.portfolio-modal');
-    const modalClose = document.querySelector('.close-modal');
-    const modalContent = document.querySelector('.modal-body');
-    
-    // Sample portfolio data (you would replace this with your actual projects)
+    // Portfolio Data
     const portfolioData = [
         {
             id: 1,
@@ -197,22 +160,89 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // Generate portfolio items
+    // Portfolio Variables
     const portfolioGrid = document.querySelector('.portfolio-grid');
-    
-    portfolioData.forEach(item => {
-        const portfolioItem = document.createElement('div');
-        portfolioItem.className = `portfolio-item ${item.category}`;
-        portfolioItem.innerHTML = `
-            <img src="${item.image}" alt="${item.title}" class="portfolio-img">
-            <div class="portfolio-overlay">
-                <h3>${item.title}</h3>
-                <p>${item.category.charAt(0).toUpperCase() + item.category.slice(1)}</p>
-                <a href="#" class="view-btn" data-id="${item.id}">Voir les détails</a>
-            </div>
-        `;
-        portfolioGrid.appendChild(portfolioItem);
-    });
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    let portfolioItems = [];
+
+    // Generate Portfolio Items
+    function generatePortfolioItems() {
+        portfolioGrid.innerHTML = '';
+        
+        portfolioData.forEach(item => {
+            const portfolioItem = document.createElement('div');
+            portfolioItem.className = `portfolio-item ${item.category}`;
+            portfolioItem.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3>${item.title}</h3>
+                    <p>${item.category.charAt(0).toUpperCase() + item.category.slice(1)}</p>
+                    <a href="#" class="view-btn" data-id="${item.id}">Voir les détails</a>
+                </div>
+            `;
+            portfolioGrid.appendChild(portfolioItem);
+        });
+
+        // Update portfolio items reference
+        portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        // Add initial animation to items
+        portfolioItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        // Trigger animation
+        setTimeout(() => {
+            portfolioItems.forEach(item => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            });
+        }, 100);
+    }
+
+    // Setup Filter Buttons
+    function setupFilterButtons() {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filterValue = this.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+    }
+
+    // Initialize Portfolio
+    function initPortfolio() {
+        generatePortfolioItems();
+        setupFilterButtons();
+    }
+
+    // Portfolio Modal
+    const portfolioModal = document.querySelector('.portfolio-modal');
+    const modalClose = document.querySelector('.close-modal');
+    const modalContent = document.querySelector('.modal-body');
 
     // Open modal when clicking on view button
     document.addEventListener('click', function(e) {
@@ -432,13 +462,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
     
-    // Set initial state
-    document.querySelectorAll('.service-card, .portfolio-item, .pricing-card').forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
-    
     window.addEventListener('scroll', animateOnScroll);
+    
+    // Initialize everything
+    initPortfolio();
     animateOnScroll(); // Run once on page load
 });
