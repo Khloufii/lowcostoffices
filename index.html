@@ -3,175 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LowCostOffices - Création de Sites Web Professionnels à Prix Abordable</title>
-    <meta name="description" content="LowCostOffices crée des sites web professionnels pour médecins, avocats et architectes à des prix abordables. Solutions clé en main avec hébergement et SEO inclus.">
-    <meta name="keywords" content="création site web, site internet pas cher, site professionnel, site pour médecin, site pour avocat, lowcostoffices, site vitrine">
-    <meta name="author" content="LowCostOffices">
-    <link rel="canonical" href="https://www.lowcostoffices.com">
-    
-    <!-- Préchargement des ressources -->
-    <link rel="preload" href="images/logo-lowcost.png" as="image">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>LowCostOffices - Sites Web pour Professionnels Libéraux</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>LowCostOffices - Sites web pour professions libérales</title>
-    
-
-  <!-- Favicon au format PNG (prise en charge plus large) -->
-  <link rel="icon" href="/images/favicon.ico" sizes="32x32" type="image/ico">
-  <link rel="icon" href="/images/favicon.ico" sizes="16x16" type="image/ico">
-
-  <!-- Pour les appareils Apple (iPhone/iPad) -->
-  <link rel="apple-touch-icon" href="images/favicon.ico" sizes="180x180">
-
-  <!-- Optionnel : manifest web app (Progressive Web App) -->
-  <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="scripts.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-   
 </head>
 <body>
     <!-- Loader -->
     <div class="loader">
-        <div class="loader-code">
-            <span class="loader-line"></span>
-            <span class="loader-line"></span>
-            <span class="loader-line"></span>
-            <span class="loader-line"></span>
-            <span class="loader-line"></span>
-            <span class="loader-line"></span>
+        <div class="loader-inner">
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
         </div>
-        <div class="loader-percent" id="loaderPercent">0%</div>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">
-                <span class="logo-code">&lt;</span><img src="images/logo lowcost.png" alt="logo" class="logoo"><span class="logo-code">/&gt;</span>
-            </a>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <a href="#" class="logo"><img src="images/logo lowcost.png" alt="logo" class="logolowcost"></a>
+            <div class="navbar-links">
+                <a href="#home">Accueil</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#pricing">Tarifs</a>
+                <a href="#contact">Contact</a>
+                <button class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#catalogue">Portfolio</a></li>
-                <li><a href="#apropos">À propos</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="accueil">
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="particles" id="particles-js"></div>
+            <div class="gradient-overlay"></div>
+        </div>
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">
-                    
-                    Sites Web Professionnels pour <span class="highlight">Médecins, Avocats, Architectes, ...</span>
-                    
-                </h1>
-                <p class="hero-subtitle">Des solutions web sur mesure pour valoriser votre expertise</p>
+                <h1 class="animate-text">Sites Web Professionnels pour <span class="typed-text"></span></h1>
+                <p>Création de sites web sur mesure pour médecins, avocats, architectes et autres professionnels libéraux à des prix compétitifs.</p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Demander un devis</a>
-                    <a href="#catalogue" class="btn btn-secondary">Voir nos réalisations</a>
+                    <a href="#portfolio" class="btn btn-primary">Voir nos réalisations</a>
+                    <a href="#contact" class="btn btn-secondary">Demander un devis</a>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="code-window">
-                    <div class="code-header">
-                        <span class="code-dot red"></span>
-                        <span class="code-dot yellow"></span>
-                        <span class="code-dot green"></span>
-                        <span class="code-title">site-medecin.js</span>
-                    </div>
-                    <div class="code-body">
-                        <pre><code class="language-javascript">// Création d'un site médical moderne
-function createMedicalSite() {
-  const features = [
-    "Design responsive",
-    "Prise de RDV en ligne",
-    "Securité des données",
-    "Optimisé SEO",
-    "Galerie professionnelle"
-  ];
-  
-  return features.map(feature => 
-    `<div class="feature">${feature}</div>`
-  ).join('');
-}</code></pre>
-                    </div>
-                </div>
+                <img src="images/Mediplus.jpg" alt="Site web professionnel" class="floating">
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services" id="services">
+    <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">
-                
-                Nos Services
-            </h2>
-            <p class="section-subtitle">Des solutions adaptées à chaque profession libérale</p>
+            <h2 class="section-title">Nos <span>Services</span></h2>
+            <p class="section-subtitle">Nous offrons une solution complète pour votre présence en ligne</p>
             
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3>Sites Vitrine</h3>
-                    <p>Présentez votre cabinet professionnel avec élégance et efficacité.</p>
-                    <ul class="service-features">
-                        <li>Design personnalisé</li>
-                        <li>Responsive design</li>
-                        <li>Optimisation SEO</li>
-                        <li>Formulaire de contact</li>
-                    </ul>
+                    <h3>Site Vitrine</h3>
+                    <p>Présentation professionnelle de votre cabinet avec vos services, coordonnées et informations pratiques.</p>
+                    <div class="wave"></div>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-calendar-check"></i>
                     </div>
-                    <h3>Prise de RDV en ligne</h3>
-                    <p>Permettez à vos clients de prendre rendez-vous 24h/24.</p>
-                    <ul class="service-features">
-                        <li>Synchronisation agenda</li>
-                        <li>Notifications automatiques</li>
-                        <li>Paiement en ligne</li>
-                        <li>Annulation facile</li>
-                    </ul>
+                    <h3>Réservation en ligne</h3>
+                    <p>Système de prise de rendez-vous intégré pour vos clients.</p>
+                    <div class="wave"></div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Design Responsive</h3>
+                    <p>Adapté à tous les écrans : ordinateur, tablette et smartphone.</p>
+                    <div class="wave"></div>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-search"></i>
                     </div>
-                    <h3>Référencement SEO</h3>
-                    <p>Améliorez votre visibilité sur les moteurs de recherche.</p>
-                    <ul class="service-features">
-                        <li>Optimisation technique</li>
-                        <li>Contenu optimisé</li>
-                        <li>Suivi des performances</li>
-                        <li>Stratégie mots-clés</li>
-                    </ul>
+                    <h3>SEO Optimisé</h3>
+                    <p>Votre site est optimisé pour apparaître dans les premiers résultats de recherche.</p>
+                    <div class="wave"></div>
                 </div>
                 
                 <div class="service-card">
@@ -179,232 +121,194 @@ function createMedicalSite() {
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <h3>Hébergement Sécurisé</h3>
-                    <p>Une solution fiable et sécurisée pour votre site web.</p>
-                    <ul class="service-features">
-                        <li>Certificat SSL inclus</li>
-                        <li>Sauvegardes automatiques</li>
-                        <li>Assistance technique</li>
-                        <li>Mises à jour incluses</li>
-                    </ul>
+                    <p>Hébergement rapide et sécurisé avec certificat SSL inclus.</p>
+                    <div class="wave"></div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Maintenance</h3>
+                    <p>Services de maintenance et mises à jour pour garder votre site performant.</p>
+                    <div class="wave"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-   <!-- Section Catalogue -->
-    <section class="catalogue" id="catalogue">
+    <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2 class="section-title">Notre <span>Catalogue</span></h2>
-            <p class="section-subtitle">Découvrez nos modèles par profession</p>
+            <h2 class="section-title">Nos <span>Réalisations</span></h2>
+            <p class="section-subtitle">Découvrez nos dernières créations pour des professionnels libéraux</p>
             
-            <div class="filters">
+            <div class="portfolio-filter">
                 <button class="filter-btn active" data-filter="all">Tous</button>
                 <button class="filter-btn" data-filter="medecin">Médecins</button>
                 <button class="filter-btn" data-filter="avocat">Avocats</button>
                 <button class="filter-btn" data-filter="architecte">Architectes</button>
-                <button class="filter-btn" data-filter="autre">Autres</button>
+                <button class="filter-btn" data-filter="notaire">Notaires</button>
             </div>
             
             <div class="portfolio-grid">
-                <!-- Modèle 1 - Médecin -->
-                <div class="portfolio-item animate-card" data-category="medecin">
-                    <div class="portfolio-image">
-                        <img src="images/Mediplus.jpg" alt="Modèle pour médecin" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <a href="#" class="btn-view">Voir démo</a>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Clinique Médicale</h3>
-                        <p>Design épuré et professionnel pour cabinets médicaux.</p>
-                    </div>
-                </div>
-                
-                <!-- Modèle 2 - Avocat -->
-                <div class="portfolio-item animate-card delay-1" data-category="avocat">
-                    <div class="portfolio-image">
-                        <img src="images/9a2ecc64737bcd0291348fb8eed79202.jpg" alt="Modèle pour avocat" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <a href="#" class="btn-view">Voir démo</a>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Cabinet d'Avocats</h3>
-                        <p>Style sobre et élégant reflétant sérieux et expertise.</p>
-                    </div>
-                </div>
-                
-                <!-- Modèle 3 - Architecte -->
-                <div class="portfolio-item animate-card delay-2" data-category="architecte">
-                    <div class="portfolio-image">
-                        <img src="images/OIP.jpeg" alt="Modèle pour architecte" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <a href="#" class="btn-view">Voir démo</a>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Agence d'Architecture</h3>
-                        <p>Design moderne avec galerie visuelle pour présenter vos projets.</p>
-                    </div>
-                </div>
-                
-                <!-- Modèle 4 - Dentiste -->
-                <div class="portfolio-item animate-card" data-category="medecin">
-                    <div class="portfolio-image">
-                        <img src="images/Dental-Care-Drupal-Website-Template.jpeg" alt="Modèle pour dentiste" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <a href="#" class="btn-view">Voir démo</a>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Cabinet Dentaire</h3>
-                        <p>Design apaisant avec fonctionnalités spécifiques aux dentistes.</p>
-                    </div>
-                </div>
-                
-                <!-- Modèle 5 - Notaire -->
-                <div class="portfolio-item animate-card delay-1" data-category="autre">
-                    <div class="portfolio-image">
-                        <img src="images/14.jpg" alt="Modèle pour notaire" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <a href="#" class="btn-view">Voir démo</a>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Étude Notariale</h3>
-                        <p>Style traditionnel avec une touche moderne pour les notaires.</p>
-                    </div>
-                </div>
-                
-                <!-- Modèle 6 - Psychologue -->
-                <div class="portfolio-item animate-card delay-2" data-category="autre">
-                    <div class="portfolio-image">
-                        <img src="images/OIP (1).jpeg" alt="Modèle pour psychologue" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <a href="#" class="btn-view">Voir démo</a>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Cabinet de Psychologie</h3>
-                        <p>Design apaisant favorisant la confiance et le bien-être.</p>
-                    </div>
-                </div>
+                <!-- Les éléments du portfolio seront ajoutés dynamiquement via JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="apropos">
+    <!-- Portfolio Modal -->
+    <div class="portfolio-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Contenu chargé dynamiquement -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
         <div class="container">
-            <div class="about-content">
-                <h2 class="section-title">
-               
-                    À propos de LowCostOffices 
-                </h2>
-                <p>Fondée en 2020, LowCostOffices se spécialise dans la création de sites web haut de gamme pour les professionnels libéraux.</p>
-                <p>Notre mission est de fournir des solutions web abordables sans compromis sur la qualité, permettant aux médecins, avocats, architectes et autres professionnels de se concentrer sur leur métier tout en ayant une présence en ligne professionnelle.</p>
+            <h2 class="section-title">Nos <span>Tarifs</span></h2>
+            <p class="section-subtitle">Des solutions adaptées à chaque besoin et budget</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <div class="price">1500 MAD<span>/unique</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Site vitrine 5 pages</li>
+                        <li><i class="fas fa-check"></i> Design responsive</li>
+                        <li><i class="fas fa-check"></i> Formulaire de contact</li>
+                        <li><i class="fas fa-check"></i> Hébergement 1 an</li>
+                        <li><i class="fas fa-check"></i> Nom de domaine 1 an</li>
+                        <li><i class="fas fa-times"></i> Réservation en ligne</li>
+                        <li><i class="fas fa-times"></i> Blog intégré</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Commander</a>
+                </div>
                 
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="150">0</div>
-                        <div class="stat-label">Projets réalisés</div>
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3>Professionnel</h3>
+                        <div class="price">1700 MAD<span>/unique</span></div>
+                        <div class="popular">Populaire</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="12">0</div>
-                        <div class="stat-label">Spécialités couvertes</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Site vitrine 10 pages</li>
+                        <li><i class="fas fa-check"></i> Design responsive</li>
+                        <li><i class="fas fa-check"></i> Formulaire de contact</li>
+                        <li><i class="fas fa-check"></i> Système de rendez-vous</li>
+                        <li><i class="fas fa-check"></i> Hébergement 1 an</li>
+                        <li><i class="fas fa-check"></i> Nom de domaine 1 an</li>
+                        <li><i class="fas fa-check"></i> Blog intégré</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Commander</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                        <div class="price">2500 MAD<span>/unique</span></div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="98">0</div>
-                        <div class="stat-label">% de clients satisfaits</div>
-                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Site vitrine illimité</li>
+                        <li><i class="fas fa-check"></i> Design responsive premium</li>
+                        <li><i class="fas fa-check"></i> Formulaire de contact</li>
+                        <li><i class="fas fa-check"></i> Système de rendez-vous</li>
+                        <li><i class="fas fa-check"></i> Hébergement 2 ans</li>
+                        <li><i class="fas fa-check"></i> Nom de domaine 2 ans</li>
+                        <li><i class="fas fa-check"></i> Blog intégré + SEO avancé</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Commander</a>
                 </div>
             </div>
-            <div class="about-image">
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
-                        <span class="terminal-title">lowcostoffices-terminal</span>
-                    </div>
-                    <div class="terminal-body">
-                        <div class="terminal-line">$ npm init lowcost-site</div>
-                        <div class="terminal-line">✔ Spécialité? · avocat</div>
-                        <div class="terminal-line">✔ Couleurs préférées? · bleu, blanc</div>
-                        <div class="terminal-line">✔ Fonctionnalités? · rdv, blog, galerie</div>
-                        <div class="terminal-line">Compiling site...</div>
-                        <div class="terminal-line progress-line">
-                            <span class="progress-bar" style="width: 0%"></span>
-                        </div>
-                        <div class="terminal-line">Site généré avec succès!</div>
-                        <div class="terminal-line">$ <span class="terminal-cursor">|</span></div>
-                    </div>
-                </div>
+            
+            <div class="pricing-note">
+                <p>Besoin d'une solution sur mesure ? <a href="#contact">Contactez-nous</a> pour un devis personnalisé.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">
-          
-                Contactez-nous 
-            </h2>
-            <p class="section-subtitle">Prêt à démarrer votre projet? Envoyez-nous un message.</p>
+            <h2 class="section-title">Nous <span>Contacter</span></h2>
+            <p class="section-subtitle">Prêt à démarrer votre projet ? Envoyez-nous un message.</p>
             
-            <div class="contact-container">
+            <div class="contact-grid">
                 <div class="contact-info">
                     <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p>lowcostoffices679@gmail.com</p>
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Adresse</h3>
+                            <p>
+                                123 Rue du de l innovation , Meknes , Maroc</p>
+                        </div>
                     </div>
+                    
                     <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <h3>Téléphone</h3>
-                        <p>06 61 77 24 71</p>
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Téléphone</h3>
+                            <p>06 61 77 24 71</p>
+                        </div>
                     </div>
+                    
                     <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Adresse</h3>
-                        <p>123 Rue du de l innovation , Meknes , Maroc</p>
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p>lowcostoffices679@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Horaires</h3>
+                            <p>Lundi-Vendredi: 9h-18h</p>
+                        </div>
                     </div>
                 </div>
                 
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" required>
-                        <label for="name">Votre nom</label>
-                        <span class="form-highlight"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" required>
-                        <label for="email">Votre email</label>
-                        <span class="form-highlight"></span>
-                    </div>
-                    <div class="form-group">
-                        <select id="profession" name="profession" required>
-                            <option value=""></option>
-                            <option value="medecin">Médecin</option>
-                            <option value="avocat">Avocat</option>
-                            <option value="architecte">Architecte</option>
-                            <option value="autre">Autre profession libérale</option>
-                        </select>
-                        <label for="profession">Votre profession</label>
-                        <span class="form-highlight"></span>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="4" required></textarea>
-                        <label for="message">Votre message</label>
-                        <span class="form-highlight"></span>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        <span>Envoyer le message</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" placeholder="Sujet">
+                        </div>
+                        <div class="form-group">
+                            <select id="service">
+                                <option value="">-- Choisir un service --</option>
+                                <option value="Site Vitrine">Site Vitrine</option>
+                                <option value="Site avec RDV">Site avec RDV</option>
+                                <option value="Site Premium">Site Premium</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" placeholder="Votre message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -412,12 +316,10 @@ function createMedicalSite() {
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <a href="#" class="logo">
-                        <span class="logo-code">&lt;</span>LowCostOffices<span class="logo-code">/&gt;</span>
-                    </a>
-                    <p>Création de sites web professionnels pour les professionnels libéraux.</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>LowCostOffices</h3>
+                    <p>Spécialistes en création de sites web pour professionnels libéraux depuis 2023.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -426,41 +328,43 @@ function createMedicalSite() {
                     </div>
                 </div>
                 
-                <div class="footer-links">
-                    <h3>Liens rapides</h3>
+                <div class="footer-col">
+                    <h3>Liens utiles</h3>
                     <ul>
-                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#home">Accueil</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#apropos">À propos</a></li>
+                        <li><a href="#pricing">Tarifs</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-services">
-                    <h3>Nos services</h3>
+                <div class="footer-col">
+                    <h3>Services</h3>
                     <ul>
-                        <li><a href="#">Sites vitrine</a></li>
-                        <li><a href="#">Prise de RDV en ligne</a></li>
-                        <li><a href="#">Référencement SEO</a></li>
-                        <li><a href="#">Hébergement sécurisé</a></li>
+                        <li><a href="#">Sites vitrines</a></li>
+                        <li><a href="#">Réservation en ligne</a></li>
+                        <li><a href="#">Hébergement</a></li>
                         <li><a href="#">Maintenance</a></li>
+                        <li><a href="#">SEO</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-newsletter">
+                <div class="footer-col">
                     <h3>Newsletter</h3>
-                    <p>Abonnez-vous pour recevoir nos conseils et offres spéciales.</p>
+                    <p>Abonnez-vous pour recevoir nos dernières offres et conseils.</p>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Votre email" required>
+                        <input type="email" placeholder="Votre email">
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
                 <p>&copy; 2025 LowCostOffices. Tous droits réservés.</p>
-                <div class="footer-legal">
+                <div class="footer-links">
                     <a href="#">Mentions légales</a>
                     <a href="#">Politique de confidentialité</a>
                     <a href="#">Conditions générales</a>
@@ -469,6 +373,13 @@ function createMedicalSite() {
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
